@@ -2,7 +2,7 @@ Repository contains MapTiler component and sample app that demonstarte how to us
 
 after cloning to install necessary dependencies run
 
-### `npm initialize`
+### `npm install`
 
 and then  continue with:
 
