@@ -9,7 +9,7 @@ function App() {
       frekvencija:"80.1",
       lng:"16.476634653326453",
       lat:"43.521867504689745",
-      // ovo gore je obavezno, a mogu se dodati i drugi atributi koje zele, kao npr vrstaGlazbe, svi atributi ce biti poslani ukomponentu DetaljiStanice
+      // ovo gore je obavezno, a mogu se dodati i drugi atributi koje zelite, kao npr vrstaGlazbe, svi atributi ce biti poslani ukomponentu DetaljiStanice
       vrstaGlazbe:"pop"
     },
     {
@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="App">
           <MapTiler lng="16.470369012927815" lat="43.51330933410279" zoom="10" radioStanice={radioStanice} apiKey="EyqY6iqRC1RKzlOnWTFD"/>
-          {/*ako ce kroistiti komponentu moraju joj dati ove atribute*/}
+          {/*ako cete kroistiti komponentu morate joj dati ove atribute*/}
     </div>
   );
 }
