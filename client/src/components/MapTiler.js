@@ -2,24 +2,26 @@ import React, { useRef, useEffect, useState } from 'react';
 import * as maptilersdk from '@maptiler/sdk';
 import "@maptiler/sdk/dist/maptiler-sdk.css";
 import './Map.css';
-//import {popupStyle} from './Map.css'
 function MapTiler({lng,lat,zoom,apiKey,radioStanice}){
-    lng = Number(lng)
-    lat=Number(lat)
-    zoom=Number(zoom)
+   
   
     const mapContainer = useRef(null);
     const map = useRef(null);
-    const [currentZoom, setCurrentZoom] = useState(zoom);
     maptilersdk.config.apiKey = apiKey;
   
     useEffect(() => {
-        if (map.current) return; // stops map from intializing more than once
+        if (map.current) {
+            console.log("In useEffect, map.current is set, setting zoom to:", zoom, map.current.repaint)
+            //map.current.repaint = true
+            map.current.setZoom(zoom)
+            map.current.setCenter([lng,lat])
+            map.current.redraw()
+        }
         map.current = new maptilersdk.Map({
             container: mapContainer.current,  //ne mozemo predati hostDiv jer to nije pravi div u domu nego react element u virtualnom domu
             style: maptilersdk.MapStyle.STREETS,
             center: [lng,lat],
-            zoom: currentZoom
+            zoom: zoom
             });
         radioStanice.forEach(rs=>{
             const popup=new maptilersdk.Popup({offset: 25})
@@ -30,7 +32,7 @@ function MapTiler({lng,lat,zoom,apiKey,radioStanice}){
                 .setPopup(popup)
                 .addTo(map.current);
         })
-        }, [lng,lat,currentZoom]);
+        }, [lng,lat,zoom]);
     
     return (
         <div className="map-wrap">

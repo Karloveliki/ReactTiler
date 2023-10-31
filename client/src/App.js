@@ -28,6 +28,7 @@ function App() {
   return (
     <div className="App">
           <MapTiler lng="16.470369012927815" lat="43.51330933410279" zoom="10" radioStanice={radioStanice} apiKey="EyqY6iqRC1RKzlOnWTFD"/>
+          {/*ako ce kroistiti komponentu moraju joj dati ove atribute*/}
     </div>
   );
 }
