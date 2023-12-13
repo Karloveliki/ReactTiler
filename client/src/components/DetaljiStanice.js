@@ -5,7 +5,26 @@ function DetaljiStanice({stanica}){
     }
     return(
         <div>
-            Detalji stanice:  { stanica.name } {stanica.frekvencija} {stanica.vrstaGlazbe}
+            
+            <h1> { stanica.name } </h1>
+            <table>
+
+                <tr>
+                    <td>frekvencija:</td>
+                    <td> {stanica.frekvencija}</td>
+                </tr>
+                <tr>
+                    <td>žanr:</td>
+                    <td>{stanica.vrstaGlazbe}</td>
+                </tr>
+                <tr>
+                    <td>ime glavnog urednika:</td>
+                    <td>{stanica.imeGlavnogUrednika}</td>
+                </tr>
+            </table>
+            
+              
+             
         </div>
 
     )

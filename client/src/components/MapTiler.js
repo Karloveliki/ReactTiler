@@ -47,7 +47,7 @@ function MapTiler({lng,lat,zoom,apiKey,radioStanice}){
             <div className="map-wrap">
                 <div ref={mapContainer} className="map" />{ /*korisit se za dohvaćanje pravog dom elementa iz virtualnog dom elemnta*/}
             </div>
-            <DetaljiStanice stanica={odabranaStanica} /> 
+            <DetaljiStanice stanica={odabranaStanica } /> 
         </div>
     );
 }
