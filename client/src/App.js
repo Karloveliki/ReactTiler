@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import MapTiler from './components/MapTiler'
+import stations from './stations'
+
 function getRandomArbitrary(min, max) {
   return Math.random() * (max - min) + min;
 }
@@ -9,26 +11,41 @@ function randomStation(brojStanica, scatterLongitude,scatterLatitude){
   const rs=[];
   for(let i=0;i<brojStanica;i++){
     let frekv = 95 + getRandomArbitrary(1,5)
-    frekv = Math.round(frekv *100 )/100
+    frekv = Math.round(frekv *100 )/100 //zaokruži na 2 decimale
     frekv = frekv.toString()
-    let randomLongitude=getRandomArbitrary(0,scatterLongitude*2)-scatterLongitude
+    let randomLongitude=getRandomArbitrary(0,scatterLongitude*2)-scatterLongitude //
     let randomLatitude=getRandomArbitrary(0,scatterLatitude*2)-scatterLatitude
     const long=randomLongitude.toString()
     const lati=randomLatitude.toString()
     const stanica = {
       name: "stanixa" + i,
       id: "random"+i,
-      frekvencija: frekv,
+      frequency: frekv,
       lng: long,
       lat: lati,
-      vrstaGlazbe:"pop",
-      imeGlavnogUrednika: "Marko"
+      vrstaGlazbe:"pop"
+      
     }
     rs.push(stanica)
 
   }
   return rs
 }
+
+function svjetskeStanice(){
+  return(
+    stations.map(stanica=>{
+      return ({
+        name:stanica.name,
+        id: stanica.stationuuid,
+        frekvencija: "97.2",
+        lng:stanica.geo_long.toString(),
+        lat:stanica.geo_lat.toString()
+      })
+    })
+  )
+}
+
 function App() {
   const radioStanice=[
     {
@@ -58,7 +75,8 @@ function App() {
 
     }
   ]
-  const punoStanica=randomStation(200,179,89)
+  //const punoStanica=randomStation(300,179,89)
+  const punoStanica=svjetskeStanice()
   return (
     <div className="App">
           <MapTiler lng="16.470369012927815" lat="43.51330933410279" zoom="1" radioStanice={punoStanica} apiKey="EyqY6iqRC1RKzlOnWTFD"/>

@@ -11,16 +11,13 @@ function DetaljiStanice({stanica}){
 
                 <tr>
                     <td>frekvencija:</td>
-                    <td> {stanica.frekvencija}</td>
+                    <td> {stanica.frequency}</td>
                 </tr>
                 <tr>
                     <td>žanr:</td>
                     <td>{stanica.vrstaGlazbe}</td>
                 </tr>
-                <tr>
-                    <td>ime glavnog urednika:</td>
-                    <td>{stanica.imeGlavnogUrednika}</td>
-                </tr>
+              
             </table>
             
               
